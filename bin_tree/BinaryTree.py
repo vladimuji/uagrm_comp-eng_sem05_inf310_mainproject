@@ -7,6 +7,8 @@ Description: Basic Binary Tree structure, with its node class and
 Author: Vladimir
 """
 
+from collections import deque
+
 
 class BinaryNode:
     """Represents a node inside a Binary Tree."""
@@ -89,4 +91,195 @@ class BinaryTree:
         return (
             self.is_empty_node(node.left_child)
             and self.is_empty_node(node.right_child)
+        )
+
+    def insert(self, data):
+        """Insert data at the first empry spot found in level-order"""
+        if data is None:
+            raise ValueError("The tree does not accept None as a valid value.")
+
+        if self.is_empty_tree():
+            self._root = self.create_node(data)
+            return
+
+        nodes_queue = deque([self._root])
+        while nodes_queue:
+            node_in_turn = nodes_queue.popleft()
+            if not self.is_empty_node(node_in_turn.left_child):
+                nodes_queue.append(node_in_turn.left_child)
+            else:
+                node_in_turn.left_child = self.create_node(data)
+                return
+
+            if not self.is_empty_node(node_in_turn.right_child):
+                nodes_queue.append(node_in_turn.right_child)
+            else:
+                node_in_turn.right_child = self.create_node(data)
+                return
+
+
+    def search(self, data):
+        """Return the data if found in the tree (levell-order search), else None."""
+        if data is None:
+            raise ValueError("Data can't be None")
+
+        if self.is_empty_tree():
+            return None
+
+        nodes_queue = deque([self._root])
+        while nodes_queue:
+            node_in_turn = nodes_queue.popleft()
+            if node_in_turn.data == data:
+                return node_in_turn.data
+
+            if not self.is_empty_node(node_in_turn.left_child):
+                nodes_queue.append(node_in_turn.left_child)
+
+            if not self.is_empty_node(node_in_turn.right_child):
+                nodes_queue.append(node_in_turn.right_child)
+
+        return None
+
+    def has(self, data):
+        """Return True if the data exists in the tree (own level-order traversal)."""
+        if data is None:
+            raise ValueError("Data can't be None")
+
+        if self.is_empty_tree():
+            return False
+
+        nodes_queue = deque([self._root])
+        while nodes_queue:
+            node_in_turn = nodes_queue.popleft()
+            if node_in_turn.data == data:
+                return True
+
+            if not self.is_empty_node(node_in_turn.left_child):
+                nodes_queue.append(node_in_turn.left_child)
+
+            if not self.is_empty_node(node_in_turn.right_child):
+                nodes_queue.append(node_in_turn.right_child)
+
+        return False
+
+    def pre_order(self):
+        """Return list of data in pre-order (root, left, right)."""
+        iteration = []
+        self._pre_order_rec(self._root, iteration)
+        return iteration
+
+    def _pre_order_rec(self, current_node, iteration):
+        if self.is_empty_node(current_node):
+            return
+
+        iteration.append(current_node.data)
+        self._pre_order_rec(current_node.left_child, iteration)
+        self._pre_order_rec(current_node.right_child, iteration)
+
+    def _pre_order_iter(self):
+        """Iterative pre-order using an explicit stack."""
+        iteration = []
+        if self.is_empty_tree():
+            return iteration
+
+        nodes_stack = [self._root]
+        while nodes_stack:
+            node_in_turn = nodes_stack.pop()
+            iteration.append(node_in_turn.data)
+
+            if not self.is_empty_node(node_in_turn.right_child):
+                nodes_stack.append(node_in_turn.right_child)
+
+            if not self.is_empty_node(node_in_turn.left_child):
+                nodes_stack.append(node_in_turn.left_child)
+
+        return iteration
+
+    def in_order(self):
+        """Return list of data in in-order (left, root, right)."""
+        iteration = []
+        self._in_order_rec(self._root, iteration)
+        return iteration
+
+    def _in_order_rec(self, current_node, iteration):
+        if self.is_empty_node(current_node):
+            return
+
+        self._in_order_rec(current_node.left_child, iteration)
+        iteration.append(current_node.data)
+        self._in_order_rec(current_node.right_child, iteration)
+
+    def _in_order_iter(self):
+        """Iterative in-order using an explicit stack (go-left-then-visit-pattern)."""
+        iteration = []
+        stack = []
+        current = self._root
+        while stack or not self.is_empty_node(current):
+            while not self.is_empty_node(current):
+                stack.append(current)
+                current = current.left_child
+            current = stack.pop()
+            iteration.append(current.data)
+            current = current.right_child
+
+        return iteration
+
+    def post_order(self):
+        """Return list of data in post-order (left, right, root)."""
+        iteration = []
+        self._post_order_rec(self._root, iteration)
+        return iteration
+
+    def _post_order_rec(self, current_node, iteration):
+        if self.is_empty_node(current_node):
+            return
+
+        self._post_order_rec(current_node.left_child, iteration)
+        self._post_order_rec(current_node.right_child, iteration)
+        iteration.append(current_node.data)
+
+    def _post_order_iter(self):
+        """Iterative post-order using an explicit stack with right-child tracking."""
+        iteration = []
+        if self.is_empty_tree():
+            return iteration
+
+        nodes_stack = []
+        node_in_turn = self._root
+        self._insert_on_stack_to_post_order(node_in_turn, nodes_stack)
+
+        while nodes_stack:
+            node_in_turn = nodes_stack.pop()
+            iteration.append(node_in_turn.data)
+
+            if nodes_stack:
+                top_node = nodes_stack[-1]
+                if not self.is_empty_node(top_node.right_child):
+                    if node_in_turn is not top_node.right_child:
+                        self._insert_on_stack_to_post_order(top_node.right_child, nodes_stack)
+
+        return iteration
+
+    def _insert_on_stack_to_post_order(self, node_in_turn, nodes_stack):
+        """Push nodes going left-first (falling back to right) until empty."""
+        while not self.is_empty_node(node_in_turn):
+            nodes_stack.append(node_in_turn)
+            if not self.is_empty_node(node_in_turn.left_child):
+                node_in_turn = node_in_turn.left_child
+            else:
+                node_in_turn = node_in_turn.right_child 
+
+    def print_tree_recursive(self):
+        """Print the tree to console, right subtree on top, left on bottom."""
+        self._print_tree_recursive(self._root, "", False)
+
+    def _print_tree_recursive(self, node, indent, is_right):
+        if node is None:
+            return
+        self._print_tree_recursive(
+            node.right_child, indent + ("    " if is_right else "|   "), True
+        )
+        print(indent + "|-- " + str(node.data))
+        self._print_tree_recursive(
+            node.left_child, indent + ("|   " if is_right else "    "), False
         )
