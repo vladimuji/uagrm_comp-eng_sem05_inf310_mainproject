@@ -1,5 +1,5 @@
-from bin_tree.BinaryTree import BinaryTree
-from exercices.TicTacToe import Tree
+from bin_tree.binary_tree import BinaryTree
+from exercices.tic_tac_toe import Tree
 
 tree = BinaryTree()
 

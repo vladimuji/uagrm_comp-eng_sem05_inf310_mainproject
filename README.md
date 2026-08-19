@@ -11,13 +11,14 @@ This project provides clean, educational implementations of common data structur
 ```
 00-code/
 ├── bin_tree/              # Binary Tree Implementation
-│   ├── BinaryTree.py      # BinaryTree and BinaryNode classes
+│   ├── binary_tree.py     # BinaryTree and BinaryNode classes
 │   └── data/              # Test data files
 ├── graph/                 # Graph Data Structure
 │   └── data/              # Graph datasets
 ├── heap/                  # Heap Data Structure
 ├── exercices/
 │   └── pep8.py            # PEP8 coding standards examples
+│   └── tic_tac_toe.py     # The Tic Tac Toe popular game, using bin tree as AI
 └── main.py                # Main entry point
 ```
 
