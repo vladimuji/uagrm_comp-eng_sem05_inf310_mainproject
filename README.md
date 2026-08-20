@@ -6,20 +6,28 @@ A comprehensive Python implementation of fundamental data structures, developed 
 
 This project provides clean, educational implementations of common data structures following **PEP8** Python coding standards. It's designed as a learning resource for understanding the internal mechanics and properties of various data structures.
 
+## 📁 EXERCICES - HOMEWORK
+
+- **[Retos :Ejercicios propuestos Sobre estandares y buenas practicas](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/pep8.py)**
+- **[Tarea sobre estandar de condificación](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/bin_tree/binary_tree.py)**
+- **[Reto : Implementar el ADT Arboles Binarios](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/tic_tac_toe_strategy.py)**
+
+
 ## 📁 Project Structure
 
 ```
 00-code/
-├── bin_tree/              # Binary Tree Implementation
-│   ├── binary_tree.py     # BinaryTree and BinaryNode classes
-│   └── data/              # Test data files
-├── graph/                 # Graph Data Structure
-│   └── data/              # Graph datasets
-├── heap/                  # Heap Data Structure
+├── bin_tree/                   # Binary Tree Implementation
+│   ├── binary_tree.py          # BinaryTree and BinaryNode classes
+│   └── data/                   # Test data files
+├── graph/                      # Graph Data Structure
+│   └── data/                   # Graph datasets
+├── heap/                       # Heap Data Structure
 ├── exercices/
-│   └── pep8.py            # PEP8 coding standards examples
-│   └── tic_tac_toe.py     # The Tic Tac Toe popular game, using bin tree as AI
-└── main.py                # Main entry point
+│   └── pep8.py                 # PEP8 coding standards examples
+│   └── tic_tac_toe.py          # The Tic Tac Toe popular game, using bin tree as AI
+│   └── tic_tac_toe_strategy.py # The Tic Tac Toe popular game, using bin tree as AI
+└── main.py                     # Main entry point
 ```
 
 ## 🌳 Binary Tree Implementation
