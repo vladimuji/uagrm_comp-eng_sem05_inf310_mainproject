@@ -6,7 +6,7 @@ A comprehensive Python implementation of fundamental data structures, developed 
 
 This project provides clean, educational implementations of common data structures following **PEP8** Python coding standards. It's designed as a learning resource for understanding the internal mechanics and properties of various data structures.
 
-## 📁 COLAB link
+## 📁 GOOGLE COLAB
 - **[Google Colab where you can test and run the exercices](https://colab.research.google.com/drive/1U2pN--lMrr6kjuH7DZrutDfrbOXlNpAg?usp=sharing)**
 
 ## 📁 EXERCICES - HOMEWORK
