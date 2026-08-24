@@ -162,6 +162,49 @@ class BinaryTree:
 
         return False
 
+    def high(self):
+        """Return the height of the tree (0 for an empty tree)."""
+        return self._high_rec(self.root)
+
+    def _high_rec(self, current_node):
+        if self.is_empty_node(current_node):
+            return 0
+        left_high = self._high_rec(current_node.left_child)
+        right_high = self._high_rec(current_node.right_child)
+        return 1 + max(left_high, right_high)
+
+    def size(self):
+        """Return the total number of nodes in the tree ('cantidad')."""
+        return self._size_rec(self.root)
+
+    def _size_rec(self, current_node):
+        if self.is_empty_node(current_node):
+            return 0
+        return (
+            1
+            + self._size_rec(current_node.left_child)
+            + self._size_rec(current_node.right_child)
+        )
+
+    def iteration_by_levels(self):
+        """Return list of data in level-order (breadth / 'amplitud')."""
+        iteration = []
+        if self.is_empty_tree():
+            return iteration
+
+        nodes_queue = deque([self.root])
+        while nodes_queue:
+            node_in_turn = nodes_queue.popleft()
+            iteration.append(node_in_turn.data)
+
+            if not self.is_empty_node(node_in_turn.left_child):
+                nodes_queue.append(node_in_turn.left_child)
+
+            if not self.is_empty_node(node_in_turn.right_child):
+                nodes_queue.append(node_in_turn.right_child)
+
+        return iteration
+
     def pre_order(self):
         """Return list of data in pre-order (root, left, right)."""
         iteration = []

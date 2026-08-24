@@ -8,10 +8,11 @@ This project provides clean, educational implementations of common data structur
 
 ## 📁 EXERCICES - HOMEWORK
 
-- **[Retos :Ejercicios propuestos Sobre estandares y buenas practicas](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/pep8.py)**
-- **[Tarea sobre estandar de condificación](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/bin_tree/binary_tree.py)**
-- **[Reto : Implementar el ADT Arboles Binarios](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/tic_tac_toe_strategy.py)**
-
+- **[UNIDAD 0 - Retos :Ejercicios propuestos Sobre estandares y buenas practicas](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/pep8.py)**
+- **[UNIDAD 0 - Tarea sobre estandar de condificación](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/bin_tree/binary_tree.py)**
+- **[UNIDAD 1 - Reto : Implementar el ADT Arboles Binarios (Juego Tres en raya)](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/tic_tac_toe_strategy.py)**
+- **[UNIDAD 1 - Arbol binario: Implemetacion de metodos](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_bintree_meth_implem/bin_tree/binary_tree.py)**
+- **[UNIDAD 1 - Tarea : Representacion del ADT Arboles binarios de busquedas]()**
 
 ## 📁 Project Structure
 
