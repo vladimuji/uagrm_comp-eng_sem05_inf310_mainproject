@@ -20,6 +20,7 @@ This project provides clean, educational implementations of common data structur
 00-code/
 ├── bin_tree/                   # Binary Tree Implementation
 │   ├── binary_tree.py          # BinaryTree and BinaryNode classes
+│   ├── search_binary_tree.py   # SearchBinaryTree class extends BinaryTree
 │   └── data/                   # Test data files
 ├── graph/                      # Graph Data Structure
 │   └── data/                   # Graph datasets
