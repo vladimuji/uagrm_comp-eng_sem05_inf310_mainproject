@@ -8,7 +8,7 @@ Description: AVL Tree (self-balancing Binary Search Tree), extending
 Author: Vladimir
 """
 
-from binary_tree import BinaryNode, BinaryTree
+from bin_tree.binary_tree import BinaryNode, BinaryTree
 
 
 class AVLNode(BinaryNode):
@@ -189,32 +189,3 @@ class AVLTree(BinaryTree):
             self._is_balanced(node.left_child)
             and self._is_balanced(node.right_child)
         )
-
-    # ------------------------------------------------------------------
-    # Demo (mirrors AVLTree.generateAVLTree() from the Java version)
-    # ------------------------------------------------------------------
-    @staticmethod
-    def generate_avl_tree():
-        tree = AVLTree()
-        tree.insert(10)
-        tree.insert(20)
-        tree.insert(30)
-        tree.insert(40)
-        tree.insert(50)
-        tree.insert(60)
-        tree.insert(70)
-        tree.insert(80)
-        tree.insert(90)
-        tree.print_tree_recursive()
-        print("Balanced: " + str(tree.is_balanced()))
-        tree.insert(100)
-        tree.insert(110)
-        tree.insert(120)
-        tree.insert(130)
-        tree.insert(140)
-        tree.insert(150)
-        tree.print_tree_recursive()
-
-
-if __name__ == "__main__":
-    AVLTree.generate_avl_tree()

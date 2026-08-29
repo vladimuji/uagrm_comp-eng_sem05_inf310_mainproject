@@ -10,7 +10,7 @@ Description: Expression Tree built from postfix tokens (mirrors the
 Author: Vladimir
 """
 
-from binary_tree import BinaryNode, BinaryTree
+from bin_tree.binary_tree import BinaryNode, BinaryTree
 
 
 class ExpressionNode(BinaryNode):
@@ -205,57 +205,3 @@ class ExpressionTree(BinaryTree):
         return " ".join(str(token) for token in token_list)
 
 
-if __name__ == "__main__":
-    # - (7 + 3) * (5 - 2)
-    # expression = ["7", "3", "+", "5", "2", "-", "*"]  # 30
-
-    # - (10 / (2 + 3)) + 6
-    # expression = ["10", "2", "3", "+", "/", "6", "+"]  # 8
-
-    # - (8 - 4) ^ 2
-    # expression = ["8", "4", "-", "2", "^"]  # 16
-
-    # - (15 / 3) * (2 + 7)
-    # expression = ["15", "3", "/", "2", "7", "+", "*"]  # 45
-
-    # - ((2 + 3) * (4 + 5)) - 6
-    expression = [
-        "2", "3", "+", "4", "5", "+", "*", "6", "-"
-    ]  # Expected: ((5 * 9) - 6) = 39
-
-    tree = ExpressionTree(expression)
-    tree.print_tree_recursive()
-    result = tree.evaluate()
-    print("Result: " + str(result))
-    print(
-        "Infix expression: "
-        + ExpressionTree.list_to_string(tree.in_order())
-    )
-    print(
-        "Prefix expression: "
-        + ExpressionTree.list_to_string(tree.pre_order())
-    )
-    print(
-        "Postfix expression: "
-        + ExpressionTree.list_to_string(tree.post_order())
-    )
-
-    print()
-    print("---- from_infix demo (Shunting Yard) ----")
-    infix_text = "(((3 + 6) * (2 - 4)) + 7)"
-    infix_tree = ExpressionTree.from_infix(infix_text)
-    infix_tree.print_tree_recursive()
-    print("Infix input:  " + infix_text)
-    print(
-        "Postfix used: "
-        + ExpressionTree.list_to_string(
-            ExpressionTree.infix_to_postfix(
-                ExpressionTree.tokenize_infix(infix_text)
-            )
-        )
-    )
-    print("tokenize_infix: " + str(ExpressionTree.tokenize_infix(infix_text)))
-    print("infix_to_postfix: " + str(ExpressionTree.infix_to_postfix(
-        ExpressionTree.tokenize_infix(infix_text)
-    )))
-    print("Result: " + str(infix_tree.evaluate()))  # Expected: -11.0

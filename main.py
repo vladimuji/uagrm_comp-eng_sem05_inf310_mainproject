@@ -1,5 +1,7 @@
 from bin_tree.binary_tree import BinaryTree
 from bin_tree.search_binary_tree import SearchBinaryTree
+from bin_tree.expression_tree import ExpressionTree
+from bin_tree.avl_tree import AVLTree
 from exercices.tic_tac_toe import Tree
 
 #tree = BinaryTree()
@@ -72,28 +74,119 @@ from exercices.tic_tac_toe import Tree
 
 """Testing the SearchBinaryTree class."""
 
-tree = SearchBinaryTree()
+# tree = SearchBinaryTree()
 
-values = [50, 30, 70, 20, 40, 60, 80, 10]
-for value in values:
-    tree.insert(value)
+# values = [50, 30, 70, 20, 40, 60, 80, 10]
+# for value in values:
+#     tree.insert(value)
 
-print("Tree (right on top, left on bottom):")
+# print("Tree (right on top, left on bottom):")
+# tree.print_tree_recursive()
+
+# print("\nIn-order:", tree.in_order())
+# print("Pre-order:", tree.pre_order())
+# print("Post-order:", tree.post_order())
+# print("By levels:", tree.iteration_by_levels())
+
+# print("\nHigh:", tree.high())
+# print("Size:", tree.size())
+
+# print("\nHas 40?", tree.has(40))
+# print("Has 99?", tree.has(99))
+# print("Search 60:", tree.search(60))
+# print("Search 99:", tree.search(99))
+
+# root = tree.root
+# print("\nIs root a leaf?", tree.is_leaf(root))
+# print("Is left-left a leaf?", tree.is_leaf(root.left_child.left_child))
+
+
+###########################################
+
+"""Testing the ExpressionTree class."""
+
+# - (7 + 3) * (5 - 2)
+# expression = ["7", "3", "+", "5", "2", "-", "*"]  # 30
+
+# - (10 / (2 + 3)) + 6
+# expression = ["10", "2", "3", "+", "/", "6", "+"]  # 8
+
+# - (8 - 4) ^ 2
+# expression = ["8", "4", "-", "2", "^"]  # 16
+
+# - (15 / 3) * (2 + 7)
+# expression = ["15", "3", "/", "2", "7", "+", "*"]  # 45
+
+# - ((2 + 3) * (4 + 5)) - 6
+# expression = [
+#     "2", "3", "+", "4", "5", "+", "*", "6", "-"
+# ]  # Expected: ((5 * 9) - 6) = 39
+
+# tree = ExpressionTree(expression)
+# tree.print_tree_recursive()
+# result = tree.evaluate()
+# print("Result: " + str(result))
+# print(
+#     "Infix expression: "
+#     + ExpressionTree.list_to_string(tree.in_order())
+# )
+# print(
+#     "Prefix expression: "
+#     + ExpressionTree.list_to_string(tree.pre_order())
+# )
+# print(
+#     "Postfix expression: "
+#     + ExpressionTree.list_to_string(tree.post_order())
+# )
+
+# print()
+# print("---- from_infix demo (Shunting Yard) ----")
+# infix_text = "(((3 + 6) * (2 - 4)) + 7)"
+# infix_tree = ExpressionTree.from_infix(infix_text)
+# infix_tree.print_tree_recursive()
+# print("Infix input:  " + infix_text)
+# print(
+#     "Postfix used: "
+#     + ExpressionTree.list_to_string(
+#         ExpressionTree.infix_to_postfix(
+#             ExpressionTree.tokenize_infix(infix_text)
+#         )
+#     )
+# )
+# print("tokenize_infix: " + str(ExpressionTree.tokenize_infix(infix_text)))
+# print("infix_to_postfix: " + str(ExpressionTree.infix_to_postfix(
+#     ExpressionTree.tokenize_infix(infix_text)
+# )))
+# print("Result: " + str(infix_tree.evaluate()))  # Expected: -11.0
+
+
+###########################################
+
+"""Testing the AVLTree class."""
+
+# ------------------------------------------------------------------
+# Demo (mirrors AVLTree.generateAVLTree() from the Java version)
+# ------------------------------------------------------------------
+
+tree = AVLTree()
+tree.insert(10)
+tree.insert(20)
+tree.insert(30)
+tree.insert(40)
+tree.insert(50)
+tree.insert(60)
+tree.insert(70)
+tree.insert(80)
+tree.insert(90)
 tree.print_tree_recursive()
-
-print("\nIn-order:", tree.in_order())
-print("Pre-order:", tree.pre_order())
-print("Post-order:", tree.post_order())
-print("By levels:", tree.iteration_by_levels())
-
-print("\nHigh:", tree.high())
-print("Size:", tree.size())
-
-print("\nHas 40?", tree.has(40))
-print("Has 99?", tree.has(99))
-print("Search 60:", tree.search(60))
-print("Search 99:", tree.search(99))
-
-root = tree.root
-print("\nIs root a leaf?", tree.is_leaf(root))
-print("Is left-left a leaf?", tree.is_leaf(root.left_child.left_child))
+print("Balanced: " + str(tree.is_balanced()))
+tree.insert(100)
+tree.insert(110)
+tree.insert(120)
+tree.insert(130)
+tree.insert(140)
+tree.insert(150)
+tree.print_tree_recursive()
+tree.delete(50)
+tree.print_tree_recursive()
+print("Balanced: " + str(tree.is_balanced()))

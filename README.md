@@ -16,7 +16,10 @@ This project provides clean, educational implementations of common data structur
 - **[UNIDAD 1 - Reto : Implementar el ADT Arboles Binarios (Juego Tres en raya)](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_reto_tic_tac_toe_strategy/exercices/tic_tac_toe_strategy.py)**
 - **[UNIDAD 1 - Arbol binario: Implemetacion de metodos](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/uni_1_bintree_meth_implem/bin_tree/binary_tree.py)**
 - **[UNIDAD 1 - Tarea : Representacion del ADT Arboles binarios de busquedas](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/unit_1_search_bintree/bin_tree/search_binary_tree.py)**
-- **[UNIDAD 1 - Tarea : Implementar Árbol de Expresión para evaluar cadena infija]()**
+- **[UNIDAD 1 - Tarea : Implementar Árbol de Expresión para evaluar cadena infija](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/unit_1_expression_tree/bin_tree/expression_tree.py)**
+- **[UNIDAD 1 - Tarea unidad 1: Implementar metodos de Arboles Binarios AVL](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/unit_1_avl_tree_implementation/bin_tree/avl_tree.py)**
+- **[UNIDAD 1 - Tarea unidad 1: Crear interfaz grafica]()**
+- **[UNIDAD 1 - Arbol binario: Metodo eliminar y AVL](https://github.com/vladimuji/uagrm_comp_eng_sem05_inf310_mainproject/blob/unit_1_avl_tree_implementation/bin_tree/avl_tree.py)**
 
 ## 📁 Project Structure
 
